@@ -1,4 +1,4 @@
-import read_file as rf
+import file_handler as rf
 
 words_db = rf.get_words()
 words_list = words_db.copy()
