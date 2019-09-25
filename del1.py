@@ -21,13 +21,14 @@ def checker():
         elif len(hints_list) >= sum(hits):
             words_list.remove(word)
 
+
 checker()
 
 
-""" a_tr_ """
+""" t_tt_ """
 
 """ for word in check_word_list """
 #       if word == check_result
 #            append.word
-#            
+#
 
