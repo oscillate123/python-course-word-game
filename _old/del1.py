@@ -1,6 +1,6 @@
 import file_handler as rf
 
-words_db = rf.get_words()
+words_db = rf.file_reader("words.txt", encoding="ISO-8859-1")
 words_list = words_db.copy()
 hints_list = ["a", "t", "r"]
 matches = []
