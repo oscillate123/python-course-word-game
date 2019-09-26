@@ -17,7 +17,7 @@ if __name__ == "__main__":
     while user_input == "spelare":
         counter_2 += 1
         user_guess = func_2.guess_input(the_word=random_word)
-        run = func_2.Compare(guess=user_guess, word="anala")
+        run = func_2.Compare(guess=user_guess, word=random_word)
         run_done = run.compare_words()
 
         if run_done:
