@@ -10,21 +10,18 @@ if __name__ == "__main__":
     random_word = func.random_list_element(word_list=word_list)
 
     def main():
-        user_guess = func.guess_input()
-        run = func.Compare(guess=user_guess, word="rysch")
-        run_done = run.compare_words()
-        if not run_done:
-            main()
-
-    # main()
-
-    def main_2():
         while True:
-            user_guess = func.guess_input()
-            run = func.Compare(guess=user_guess, word="ninär")
-            run_done = run.compare_words()
+            user_input = input("dasdasd")
 
-            if run_done:
-                return
+            if user_input == "1":
+                pass
 
-    main_2()
+            if user_input == "2":
+                user_guess = func.guess_input()
+                run = func.Compare(guess=user_guess, word=random_word)
+                run_done = run.compare_words()
+
+                if run_done:
+                    return
+
+    main()
