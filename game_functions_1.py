@@ -1,5 +1,10 @@
+import file_handler as fh
+import game_functions_2 as func_2
+
+
 def random_word_picker(word_list):
-    pass
+    random_word = func_2.random_list_element(word_list=word_list)
+    return random_word
 
 
 class Compare:
@@ -8,46 +13,24 @@ class Compare:
         self.word = word
 
     def compare_words(self):
-        # compares the user guess with the chosen word and displays which character is correct
+        # compares the programs guess with the user chosen word and parse it
         # source: https://qph.fs.quoracdn.net/main-qimg-dbe0252936d6b28a6644faa17953f9ef
 
-        if self.guess != self.word:
-
-            correct_letters_and_pos = ["" for _ in range(len(self.word))]
-            correct_letters = []
-            incorrect_letters = []
-
+        if self.guess == self.word:
+            return print(f"Grattis! Gissning: {self.guess} | Ord: {self.word}")
+        else:
             for g_idx, g_char in enumerate(self.guess):
-                print_counter = 0
-                count = self.word.count(g_char)
-
                 for w_idx, w_char in enumerate(self.word):
-                    if g_char == w_char and g_idx == w_idx:
-                        # if the characters and character indexes are matching.
+                    if g_idx == w_idx and g_char == w_char:
 
-                        correct_letters_and_pos[w_idx] = g_char
-                        print(f"Bokstaven {g_char} är på rätt position.")
-                        if count < 2:
-                            break  # so we don't keep testing/checking, as long as there are no similar characters
 
-                    elif g_char == w_char and g_idx != w_idx:
-                        # if the characters are the same, but not in the same position.
 
-                        if count == 1:
-                            print(f"Bokstaven {g_char} finns i ordet, men på en annan position")
-                            correct_letters.append(g_char)
-                            break  # so we don't keep testing/checking
-                        elif count != 1 and print_counter == 0:
-                            print_counter += 1  # we increment with 1, so if the condition gets True again, it won't
-                            # print the same message in the same inner-loop process.
-                            print(f"Det finns flera {g_char} i ordet, men denna är inte på rätt position.")
-                            correct_letters.append(g_char)
 
-            if len(incorrect_letters) == 5:
-                print("Ingen av bokstäverna angivna finns i ordet. Vänligen försök igen.")
+if __name__ == "__main__":
+    WORDS_FILE = "words.txt"
+    word_list = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
+    random_word = random_word_picker(word_list=word_list)
 
-            return False
-
-        elif self.guess == self.word:
-            print(f"Rätt gissning! Ordet var {self.word}")
-            return True
+    x = Compare(guess=random_word, word="äckel")
+    y = x.compare_words()
+    print(y)
