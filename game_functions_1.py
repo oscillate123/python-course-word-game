@@ -13,17 +13,32 @@ class Compare:
         self.word = word
 
     def compare_words(self):
-        # compares the programs guess with the user chosen word and parse it
+        # compares the user guess with the chosen word and displays which character is correct
         # source: https://qph.fs.quoracdn.net/main-qimg-dbe0252936d6b28a6644faa17953f9ef
 
         if self.guess == self.word:
-            return print(f"Grattis! Gissning: {self.guess} | Ord: {self.word}")
-        else:
+            print(f"Programmet gissade rätt:\n{self.guess} = {self.word}")
+            return True
+
+        elif self.guess != self.word:
+
             for g_idx, g_char in enumerate(self.guess):
+
                 for w_idx, w_char in enumerate(self.word):
-                    if g_idx == w_idx and g_char == w_char:
+                    if g_char == w_char and g_idx == w_idx:
+                        # if the characters and character indexes are matching.
 
+                        print(f"Bokstaven {g_char} är på rätt position.")
+                        break  # we stop testing/checking, to save time
 
+                    elif g_char in self.word and g_idx == w_idx:
+                        print(f"Bokstaven {g_char} är rätt men på fel plats.")
+                        break
+
+            return False
+
+        else:
+            raise RuntimeError("Something is wrong here!")
 
 
 if __name__ == "__main__":

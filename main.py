@@ -16,10 +16,13 @@ if __name__ == "__main__":
 
     while user_input == "spelare":
         counter_2 += 1
-        user_guess = func_2.guess_input(the_word=random_word)
-        run = func_2.Compare(guess=user_guess, word=random_word)
+        user_guess = func_2.guess_input(the_answer=random_word)
+        run = func_2.Compare(guess=user_guess, word="t_tt_")
         run_done = run.compare_words()
 
         if run_done:
-            print(f"Du gissade {counter_2} gånger.")
+            if counter_2 == 1:
+                print(f"Du gissade bara {counter_2} gång!")
+            else:
+                print(f"Du gissade {counter_2} gånger.")
             break
