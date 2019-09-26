@@ -22,19 +22,24 @@ class Compare:
 
         elif self.guess != self.word:
 
-            for g_idx, g_char in enumerate(self.guess):
+            correct_letters_and_pos = ["" for _ in range(len(self.word))]
+            correct_letters = []
+            word = self.word
+            word_letters = list(word)
 
-                for w_idx, w_char in enumerate(self.word):
-                    if g_char == w_char and g_idx == w_idx:
-                        # if the characters and character indexes are matching.
+            for w_idx, j in enumerate(self.word):
+                for g_idx, i in enumerate(self.guess):
+                    if i == j and g_idx == w_idx:
+                        correct_letters_and_pos[w_idx] = i
 
-                        print(f"Bokstaven {g_char} är på rätt position.")
-                        break  # we stop testing/checking, to save time
+                        print(f"Bokstaven {i} är på rätt position.")
 
-                    elif g_char in self.word and g_idx == w_idx:
-                        print(f"Bokstaven {g_char} är rätt men på fel plats.")
-                        break
+                    if i == j and g_idx != w_idx:
+                        correct_letters.append(i)
 
+                        print(f"Bokstaven {i} finns i ordet.")
+
+            # return [correct_letters_and_pos, correct_letters, word_letters]
             return False
 
         else:

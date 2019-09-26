@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     user_input = func_2.console_master()
 
-    if user_input == "1":
+    if user_input == "ledare":
         func_1.random_word_picker(word_list=word_list)
 
     while user_input == "spelare":
