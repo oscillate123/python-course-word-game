@@ -9,15 +9,16 @@ if __name__ == "__main__":
     word_list = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
     random_word = func_2.random_list_element(word_list=word_list)
 
-    user_input = func_2.console_master()
+    leader_or_player = func_2.console_master()
 
-    if user_input == "ledare":
+    if leader_or_player == "leader":
         func_1.random_word_picker(word_list=word_list)
+        # run = func_2.Compare(guess=)
 
-    while user_input == "spelare":
+    while leader_or_player == "player":
         counter_2 += 1
-        user_guess = func_2.guess_input(the_answer=random_word)
-        run = func_2.Compare(guess=user_guess, word="t_tt_")
+        user_guess = func_2.player_input(the_answer=random_word)
+        run = func_2.Compare(guess=user_guess, word="festa", game_mod=leader_or_player)
         run_done = run.compare_words()
 
         if run_done:
