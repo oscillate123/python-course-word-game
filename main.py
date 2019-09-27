@@ -6,8 +6,8 @@ if __name__ == "__main__":
     counter_1 = 0
     counter_2 = 0
     WORDS_FILE = "words.txt"
-    word_list = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
-    random_word = f.random_list_element(word_list=word_list)
+    file_content = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
+    random_word = f.random_list_element(word_list=file_content)
 
     leader_or_player = f.console_init()
 
@@ -35,13 +35,19 @@ if __name__ == "__main__":
     """
 
     if leader_or_player == "leader":
-        the_words_list = word_list.copy()
+        word_list = file_content.copy()
 
         flag = True
 
         while flag:
+            r_word = f.random_list_element(word_list)
+            new_list = f.find_related_words(word_list=word_list, robot_guess=r_word, hints=f.leader_input(r_word))
+            word_list = new_list
+            new_list.remove(r_word)
+            print(len(new_list))
 
-
+            if len(new_list) == 0:
+                flag = False
 
 
 
