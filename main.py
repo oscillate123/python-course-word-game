@@ -9,17 +9,62 @@ if __name__ == "__main__":
     word_list = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
     random_word = func_2.random_list_element(word_list=word_list)
 
-    leader_or_player = func_2.console_master()
+    leader_or_player = func_2.console_init()
 
     if leader_or_player == "leader":
-        func_1.random_word_picker(word_list=word_list)
-        # run = func_2.Compare(guess=)
+        """
+        hämta lista och ta fram ett random ord (variabel word_list och funktion leader_input)
+        ta bort ordet ur listan, om det inte är rätt, för att spara tid och möda senare
+        leader_input har en return, [värde1, värde2]
+        loopa genom varje ord i word_list
+            x = Compare(kanel, baner, leader)
+            för varje ord, kolla om resultatet av Compare.game_words_selector [värde1, värde2]
+            har samma resultat som leader_input [värde1, värde2]
+            
+            leader_input = [3, 0]
+            x.game_mode_selector (= [3, 0])
+            
+            om x.game_mode_selector (= [3, 0]) == leader_input
+                gör inget - för då kan det vara rätt ord
+            om x.game_mode_selector (= [3, 0]) != leader_input
+                ta bort ordet från listan, så vi filtrerar bort orden som det inte kan vara
+                
+                
+        hämta lista och ta fram ett random ord (variabel word_list och funktion leader_input)
+        etc.
+        """
+        flag = True
+
+        while flag:
+            the_words_list = word_list.copy()
+            the_newlist = []
+
+            if len(the_newlist) == 0:
+                the_random_word = func_2.random_list_element(word_list=the_words_list)
+            else:
+                the_random_word = func_2.random_list_element(word_list=the_newlist)
+
+            hints = func_2.leader_input(random_word=the_random_word)
+
+            for word in the_words_list:
+                run = func_2.Compare(guess=word, word="hicka", game_mod=leader_or_player)
+                result = run.game_mode_selector()
+
+                print(f"hints {hints}")
+                print(f"result {result}")
+
+                if hints == result:
+                    the_newlist.append(word)
+                else:
+                    pass
+
+            print(the_words_list)
 
     while leader_or_player == "player":
         counter_2 += 1
         user_guess = func_2.player_input(the_answer=random_word)
         run = func_2.Compare(guess=user_guess, word="festa", game_mod=leader_or_player)
-        run_done = run.compare_words()
+        run_done = run.game_mode_selector()
 
         if run_done:
             if counter_2 == 1:
