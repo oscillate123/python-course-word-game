@@ -47,8 +47,8 @@ if __name__ == "__main__":
             hints = func_2.leader_input(random_word=the_random_word)
 
             for word in the_words_list:
-                run = func_2.Compare(guess=word, word="hicka", game_mod=leader_or_player)
-                result = run.game_mode_selector()
+                run = func_2.Compare(guess=word, word="hicka")
+                result = run.run_game()
 
                 print(f"hints {hints}")
                 print(f"result {result}")
@@ -63,8 +63,8 @@ if __name__ == "__main__":
     while leader_or_player == "player":
         counter_2 += 1
         user_guess = func_2.player_input(the_answer=random_word)
-        run = func_2.Compare(guess=user_guess, word="festa", game_mod=leader_or_player)
-        run_done = run.game_mode_selector()
+        run = func_2.Compare(guess=user_guess, word="festa")
+        run_done = run.run_game()
 
         if run_done:
             if counter_2 == 1:
