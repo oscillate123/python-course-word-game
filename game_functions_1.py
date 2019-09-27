@@ -10,7 +10,7 @@ def random_word_picker(word_list):
 # if __name__ == "__main__":
 #     WORDS_FILE = "words.txt"
 #     word_list = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
-#     random_word = func_2.random_list_element(word_list=word_list)
+#     random_word = f.random_list_element(word_list=word_list)
 #     y = False
 #
 #     while not y:
