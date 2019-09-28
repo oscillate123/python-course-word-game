@@ -15,7 +15,7 @@ if __name__ == "__main__":
         #
         # while flag:
         #     r_word = gf.random_list_element(word_list)
-        #  new_list = gf.find_related_words(word_list=word_list, robot_guess=r_word, hints=input.leader_input(r_word))
+        #  new_list = gf.find_related_words(word_list=word_list, robot_guess=r_word, hints=input_funcs.leader_input(r_word))
         #     word_list = new_list
         #     new_list.remove(r_word)
         #
@@ -31,7 +31,7 @@ if __name__ == "__main__":
         #
         # while flag:
         #     counter_2 += 1
-        #     user_guess = input.player_input(the_answer=random_word)
+        #     user_guess = input_funcs.player_input(the_answer=random_word)
         #     run = pug.ParseGuess(guess=user_guess, word=random_word)
         #     run_done = run.run_game()
         #

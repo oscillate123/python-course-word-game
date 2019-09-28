@@ -2,7 +2,7 @@ import game_explaination as game_exp
 
 
 def player_input(the_answer):
-    # user input, stored as a "guess" in the game
+    # user input_funcs, stored as a "guess" in the game
     # source: top comment https://stackoverflow.com/questions/19859282/check-if-a-string-contains-a-number/31861306
     # source: any section https://docs.python.org/3/library/functions.html#any
 
@@ -22,7 +22,7 @@ def player_input(the_answer):
 
 
 def leader_input(random_word):
-    # user input, returns an integer as a hint or a clue.
+    # user input_funcs, returns an integer as a hint or a clue.
     # source: https://www.geeksforgeeks.org/python-string-isnumeric-application/
 
     print(f"Programmet gissar på att ordet är {random_word}")
@@ -49,7 +49,7 @@ def leader_input(random_word):
 
 
 def console_input():
-    # user input, used for receiving commands, like starting the game etc
+    # user input_funcs, used for receiving commands, like starting the game etc
     # TODO - Ändra alternativen och kontrollera output
     commands = ["ge upp", "surrender", "leader", "player", "spelregler", "rules", "exit"]
 
