@@ -1,18 +1,19 @@
 import file_handler as fh
-import game_functions_2 as f
+import game_functions as f
+import ParseUserGuess as PUG
 
 if __name__ == "__main__":
-    counter_1 = 0
-    counter_2 = 0
+
     WORDS_FILE = "words.txt"
     file_content = fh.file_reader(read_file=WORDS_FILE, encoding='ISO-8859-1')  # returns list
-    random_word = f.random_list_element(word_list=file_content)
+    # random_word = f.random_list_element(word_list=file_content)
+    random_word = "oscar"
 
     leader_or_player = f.console_init()
 
     if leader_or_player == "leader":
+        counter_1 = 0
         word_list = file_content.copy()
-
         flag = True
 
         while flag:
@@ -25,15 +26,20 @@ if __name__ == "__main__":
                 print(f"Programmet ger upp.")
                 flag = False
 
-    while leader_or_player == "player":
-        counter_2 += 1
-        user_guess = f.player_input(the_answer=random_word)
-        run = f.ParseGuess(guess=user_guess, word=random_word)
-        run_done = run.run_game()
+    elif leader_or_player == "player":
+        counter_2 = 0
+        flag = True
 
-        if run_done:
-            if counter_2 == 1:
-                print(f"Du gissade bara {counter_2} gång!")
-            else:
-                print(f"Du gissade {counter_2} gånger.")
-            break
+        while flag:
+            counter_2 += 1
+            user_guess = f.player_input(the_answer=random_word)
+            run = PUG.ParseGuess(guess=user_guess, word=random_word)
+            run_done = run.run_game()
+
+            if run_done:
+                if counter_2 == 1:
+                    print(f"Du gissade bara {counter_2} gång!")
+                    flag = False
+                else:
+                    print(f"Du gissade {counter_2} gånger.")
+                    flag = False
