@@ -19,12 +19,6 @@ if __name__ == "__main__":
             r_word = f.random_list_element(word_list)
             new_list = f.find_related_words(word_list=word_list, robot_guess=r_word, hints=f.leader_input(r_word))
             word_list = new_list
-
-            if len(new_list) == 1:
-                check = input(f"Är ditt ord {new_list[0]}?").lower()
-                if check == "ja":
-                    print(f"")
-
             new_list.remove(r_word)
 
             if len(new_list) == 0:
